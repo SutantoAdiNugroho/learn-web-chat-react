@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import AuthService from "../../services";
 import { login } from "../../store/actions/auth";
 
 import loginImage from "../../assets/images/login.svg";
@@ -19,11 +18,10 @@ const Login = ({ history }) => {
     e.preventDefault();
 
     dispatch(login({ email, password }, history));
-
-    // AuthService.login({ email, password }).then((res) => console.log(res));
-
-    // console.log({ email, password });
   };
+
+  const userAfterReg = useSelector((state) => state.authReducers);
+  console.log("userAfterReg", userAfterReg);
 
   return (
     <div id="auth-container">
