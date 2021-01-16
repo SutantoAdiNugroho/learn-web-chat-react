@@ -19,7 +19,7 @@ export const register = (params, history) => (dispatch) => {
     .then((res) => {
       console.log(res);
       dispatch({ type: REGISTER, payload: res });
-      history.push("/login");
+      history.push("/");
     })
     .catch((err) => {});
 };
